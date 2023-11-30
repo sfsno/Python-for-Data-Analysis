@@ -1,4 +1,6 @@
 # Python-for-Data-Analysis project
+Valentin ALAKILETOA-PINAULT, Elies BENMALEK, Safia ALIOUCHE.
+
 Find the dataset here : https://archive.ics.uci.edu/dataset/373/drug+consumption+quantified
 
 The dataset is a survey of 1885 people regarding their drug use. They answered questions regarding their age, ethnicity, user of 18 different drugs and personality scores…Here is the information on each interested person:
