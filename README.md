@@ -19,9 +19,15 @@ The dataset is a survey of 1885 people regarding their drug use. They answered q
 -	Impulsive (Impulsiveness)
 -	SS (Sensation)
 ### Information about their drug use :
+- Alcohol
+- Amphet
+- Amyl
+- Benzos
+- Caffeine
 -	Cannabis
--	Choc
+-	Chocolate
 -	Coke
+-	Crack
 -	Ecstasy
 -	Heroin
 -	Ketamin
@@ -30,7 +36,7 @@ The dataset is a survey of 1885 people regarding their drug use. They answered q
 -	Meth
 -	Mushrooms
 -	Nicotine
--	Semer
+-	Semeron
 -	VSA
 
 
