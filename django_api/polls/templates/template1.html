@@ -1,0 +1,330 @@
+<html>
+<head>
+    <title>Drug Consumption Analysis</title>
+    <meta charset="utf-8">
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      background: white;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header h1 { 
+      padding-top: 2em;
+      text-align: center;
+      justify-content: center;
+      color:white;
+    }
+    
+    h2 { 
+          text-align: center;
+          justify-content: center;
+          color:white;
+          font-size:15px;
+        }
+        
+    h3 { 
+
+          color:rgba(84,58,183,1);
+          font-size:20px;
+        }
+    
+    p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    }
+    
+    /* Fond noir pour la partie supérieure */
+    header:before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50vh;
+      background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+      z-index: -1;
+    }
+    
+    /* Fond blanc pour la partie inférieure */
+    header:after {
+      content: '';
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50vh;
+      background: white;
+      z-index: -1;
+    }
+    
+    /*Animation*/
+    .parallax > use {
+      animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+    }
+    .parallax > use:nth-child(1) {
+      animation-delay: -2s;
+      animation-duration: 7s;
+    }
+    .parallax > use:nth-child(2) {
+      animation-delay: -3s;
+      animation-duration: 10s;
+    }
+    .parallax > use:nth-child(3) {
+      animation-delay: -4s;
+      animation-duration: 13s;
+    }
+    .parallax > use:nth-child(4) {
+      animation-delay: -5s;
+      animation-duration: 20s;
+    }
+    @keyframes move-forever {
+      0% {
+       transform: translate3d(-90px,0,0);
+      }
+      100% { 
+        transform: translate3d(85px,0,0);
+      }
+    }
+    /*Fin de l'animation*/
+    
+    /* Grid */
+    .grid {
+      display: flex;
+      position: static;
+      justify-content: center;
+      background: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+    .grid-item {
+      padding: 30px;
+    }
+    
+    .champ {
+      width: 50%;
+      border: 0;
+      border-bottom: 2px solid black;
+      outline: 0;
+      font-size: 1rem;
+      color: $white;
+      background: transparent;
+      margin-bottom: 10px;
+      margin-top: 10px; 
+    }
+    
+    .button {
+      background-color: rgba(51, 51, 51, 0.05);
+      border-radius: 8px;
+      border-width: 0;
+      color: #333333;
+      cursor: pointer;
+      display: inline-block;
+      font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 5px 12px;
+      text-align: center;
+      transition: all 200ms;
+      vertical-align: baseline;
+      white-space: nowrap;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+    
+    .button:hover {
+      border-color: #dadce0;
+      color: #202124;
+      background-color: rgba(84,58,183, 1);
+    }
+    
+    .button:focus {
+      border-color: #4285f4;
+      outline: none;
+    }
+    
+    
+    
+    /* CSS */
+    select {
+      align-items: center;
+      background-color: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: .25rem;
+      box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+      box-sizing: border-box;
+      color: rgba(0, 0, 0, 0.85);
+      cursor: pointer;
+      display: inline-flex;
+      font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      justify-content: center;
+      margin: 0;
+      min-height: 3rem;
+      padding: calc(1rem - .5px) calc(.5rem - 1px);
+      position: relative;
+      text-decoration: none;
+      transition: all 250ms;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: baseline;
+      width: auto;
+    }
+    
+    select:hover,
+    select:focus {
+      border-color: rgba(0, 0, 0, 0.15);
+      box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+      color: rgba(0, 0, 0, 0.65);
+    }
+    </style>
+</head>
+
+<body>
+  <!--titre de la page-->
+  <header>
+    <h1>Drug Consumption Analysis</h1>
+    <h2>Explore drug consumption patterns with our interactive API, providing in-depth<br/> 
+     visualizations that shed light on diverse aspects of substance use.</h2>
+  </header>
+  
+  
+  <!--Waves Container-->
+<div>
+<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+<defs>
+<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+</defs>
+<g class="parallax">
+<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+<use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+</g>
+</svg>
+</div>
+<!--Waves end-->
+
+</div>
+    
+    <!--grille de 2 par 2-->
+    <div class="grid">
+
+        <div class="grid-item">
+            <!-- <label for="criteria">Drug consumption with filters</label> -->
+            <h3>Drug consumption by group of people</h3>
+    <form action="apply_criteria" >
+    <label for="criteria_select">Choose a criteria:</label>
+        <select name="criteria" id="criteria_select" onchange='if(this.value != 0) { this.form.submit(); }'>
+        <option value="">--Choose an option--</option>
+        <option value="par_age">Age</option>
+        <option value="par_genre">Gender</option>
+        <option value="par_education">Level of Education</option>
+        <option value="par_pays">Country of Residence</option>
+        <option value="par_ethnicite">Ethnicity</option>
+        </select>
+    </form>
+
+    
+    {{plot_html|safe}}
+        </div>
+
+       <div class="grid-item"></div>
+
+        <div class="grid-item">
+        <h3>Personnality types based on drug consumption<br/></h3>
+            <form action="apply_personnality" >
+            <label for="personnality_select">Choose a drug:</label>
+                <select name="personnality" id="personnality_select" onchange='if(this.value != 0) { this.form.submit(); }'>
+                <option value="">--Choose an option--</option>
+                <option value="Alcohol">Alcohol</option>
+                <option value="Amphet">Amphet</option>
+                <option value="Amyl">Amyl</option>
+                <option value="Benzos">Benzos</option>
+                <option value="Caff">Caffeine</option>
+                <option value="Canabis">Canabis</option>
+                <option value="Choc">Chocolate</option>
+                <option value="Coke">Coke</option>
+                <option value="Crack">Crack</option>
+                <option value="Ecstasy">Ecstasy</option>
+                <option value="Heroin">Heroin</option>
+                <option value="Ketamin">Ketamin</option>
+                <option value="Legalh">Legalh</option>
+                <option value="LSD">LSD</option>
+                <option value="Meth">Meth</option>
+                <option value="Mushrooms">Mushrooms</option>       
+                <option value="Nicotine">Nicotine</option>
+                <option value="Semer">Semer</option>
+                <option value="VSA">VSA</option>
+                </select>
+            </form>
+
+    
+    {{plot_html_violon|safe}}
+        </div> 
+        <div class="grid-item"></div>
+        
+        
+        <div class="grid-item">
+
+           <h3>Correlation Matrix</h3>
+        <form action="apply_corr" method="get" >
+        {% csrf_token %}
+        <label for="corr_select">Choose a criteria: </br></label>
+            
+          <input type="radio" id="personnalite_drogue" name="matrice" value="personnalite_drogue">
+          <label for="personnalite_drogue">Between Drug & Personnality Types</label><br>
+          
+          <input type="radio" id="complete" name="matrice" value="complete">
+          <label for="complete">Full Correlation Matrix</label>
+          
+          <button type="submit">Apply</button>
+
+        </form>
+        
+    {{plot_html_corr|safe}}
+        </div>
+        
+        <div class="grid-item"></div>
+        
+        <div class="grid-item">
+        <h3>ROC Curves of Different Drugs for our Logistic Regression Model<br/></h3>
+        
+            <form action="apply_roc" method="get" >
+            {% csrf_token %}
+            <label for="roc_select">Choose a criteria: </br></label>
+                
+              <input type="radio" id="complete" name="model" value="complete">
+              <label for="complete">Display the results on the same plot</label><br>
+              
+              <input type="radio" id="subplots" name="model" value="subplots">
+              <label for="subplots">Display results for each drug</label>
+              
+              <button type="submit">Apply</button>
+
+            </form>
+        
+        
+        {{plot_html_ROC|safe}}
+        
+        <p>The ROC curve provides a way to visualize and assess the trade-off between sensitivity and specificity for different threshold values. The area under the ROC curve (AUC - Area Under the Curve) is also used as an aggregate measure of model performance. 
+        The AUC provides an overall idea of the model's discriminatory ability: a value close to 1 indicates better performance, while a value close to 0.5 suggests performance similar to random chance. </br>
+        Here is a serie of ROC curves, each corresponding to the logistic regression model for a specific drug. We chose to display the ROC curves of our Logistic Regression Model since it is a better model than Random Forest and KNN, because it has a higher AUC score for our dataset. </br>
+        The best ROC curve are the Legalh (AUC = 0.81) and Heroine (AUC = 0.81) ones.
+         </p>
+        </div>
+
+   </div>
+</body>
