@@ -3,33 +3,33 @@ Find the dataset here : https://archive.ics.uci.edu/dataset/373/drug+consumption
 
 The dataset is a survey of 1885 people regarding their drug use. They answered questions regarding their age, ethnicity, user of 18 different drugs and personality scores…Here is the information on each interested person:
 •	Person information :
-o	ID
-o	Age
-o	Gender
-o	Education
-o	Country
-o	Ethinicity
+-	ID
+-	Age
+-	Gender
+-	Education
+-	Country
+-	Ethinicity
 •	Personality information :
-o	Escore (Extraversion)
-o	Oscore (Openess to experience)
-o	Ascore (Agreeableness)
-o	Cscore (Conscientiousness)
-o	Impulsive (Impulsiveness)
-o	SS (Sensation)
+-	Escore (Extraversion)
+-	Oscore (Openess to experience)
+-	Ascore (Agreeableness)
+-	Cscore (Conscientiousness)
+-	Impulsive (Impulsiveness)
+-	SS (Sensation)
 •	Information about their drug use :
-o	Cannabis
-o	Choc
-o	Coke
-o	Ecstasy
-o	Heroin
-o	Ketamin
-o	Legalh
-o	LSD
-o	Meth
-o	Mushrooms
-o	Nicotine
-o	Semer
-o	VSA
+-	Cannabis
+-	Choc
+-	Coke
+-	Ecstasy
+-	Heroin
+-	Ketamin
+-	Legalh
+-	LSD
+-	Meth
+-	Mushrooms
+-	Nicotine
+-	Semer
+-	VSA
 
 
 The completed project is broken down into 4 parts:
